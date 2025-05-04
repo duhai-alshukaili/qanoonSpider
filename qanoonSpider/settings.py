@@ -7,7 +7,7 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "qanoonSpider"
+BOT_NAME = "qnoonSpider"
 
 SPIDER_MODULES = ["qanoonSpider.spiders"]
 NEWSPIDER_MODULE = "qanoonSpider.spiders"
@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = "qanoonSpider.spiders"
 #USER_AGENT = "qanoonSpider (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -60,11 +60,10 @@ ROBOTSTXT_OBEY = True
 #    "scrapy.extensions.telnet.TelnetConsole": None,
 #}
 
-# Configure item pipelines
-# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "qanoonSpider.pipelines.QanoonspiderPipeline": 300,
-#}
+ITEM_PIPELINES = {
+    "qanoonSpider.pipelines.LawFilesPipeline": 300,
+    "qanoonSpider.pipelines.SQLitePipeline":   400,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

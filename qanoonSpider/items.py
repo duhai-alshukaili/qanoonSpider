@@ -6,7 +6,9 @@
 import scrapy
 
 
-class QanoonspiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class LawItem(scrapy.Item):
+    page_id      = scrapy.Field()
+    url          = scrapy.Field()
+    content_type = scrapy.Field()        # RD | AD | RO | TA | FATWA
+    file_path    = scrapy.Field()        # filled by pipeline
+    raw_content  = scrapy.Field()      # ← NEW: temporary text buffer
