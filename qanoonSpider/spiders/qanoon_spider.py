@@ -1,7 +1,7 @@
 import re
 from urllib.parse import urlparse
-from scrapy.spiders import CrawlSpider, Rule
-from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule # type: ignore
+from scrapy.linkextractors import LinkExtractor # type: ignore
 from qanoonSpider.items import LawItem
 
 # Regex rules per section (compiled once for speed)
@@ -68,3 +68,7 @@ class QanoonSpider(CrawlSpider):
         # store content so FilePipeline can save it
         item["raw_content"] = content
         yield item
+
+    def closed(self, reason):
+        """Called when the spider is closed."""
+        self.logger.info(f"Spider closed cleanly: {reason}")
