@@ -30,7 +30,7 @@ def which_section(url_path: str):
 
 
 class QanoonSpider(CrawlSpider):
-    name = "qnoonSpider"
+    name = "qanoonSpider"
 
     # build one Rule per pattern so CrawlSpider keeps following pagination links
     rules = [
